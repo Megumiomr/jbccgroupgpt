@@ -57,7 +57,7 @@ export const simpleSearch = async (
     facets: filter?.facets || [],
     filter: filter?.filter || "",
     vectors: [],
-    top: filter?.top || 10,
+    top: filter?.top || 1,
   };
 
   const resultDocuments = (await fetcher(url, {
