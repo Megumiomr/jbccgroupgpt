@@ -6,6 +6,7 @@ export interface AzureCogDocumentIndex {
   embedding?: number[];
   user: string;
   chatThreadId: string;
+  chatType: string;
   metadata: string;
 }
 
@@ -57,7 +58,7 @@ export const simpleSearch = async (
     facets: filter?.facets || [],
     filter: filter?.filter || "",
     vectors: [],
-    top: filter?.top || 10000,
+    top: filter?.top || 1000,
   };
 
   const resultDocuments = (await fetcher(url, {
