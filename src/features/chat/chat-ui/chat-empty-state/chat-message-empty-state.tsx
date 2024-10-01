@@ -11,10 +11,10 @@ import { useSession } from "next-auth/react";
 interface Prop {}
 
 export const ChatMessageEmptyState: FC<Prop> = (props) => {
-  const { fileState } = useChatContext();
-  const { data: session } = useSession();
+  //const { fileState } = useChatContext();
+  //const { data: session } = useSession();
 
-  const { showFileUpload } = fileState;
+  //const { showFileUpload } = fileState;
 
   //<ChatFileUI />
 
