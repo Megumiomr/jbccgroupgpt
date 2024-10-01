@@ -24,21 +24,21 @@ export const ChatStyleSelector: FC<Prop> = (props) => {
           className="flex gap-2"
           disabled={props.disable}
         >
-          <Brush size={20} /> 想像的
+          <Brush size={20} /> 高
         </TabsTrigger>
         <TabsTrigger
           value="balanced"
           className="flex gap-2"
           disabled={props.disable}
         >
-          <Scale size={20} /> バランス
+          <Scale size={20} /> 中
         </TabsTrigger>
         <TabsTrigger
           value="precise"
           className="flex gap-2"
           disabled={props.disable}
         >
-          <CircleDot size={20} /> 厳密
+          <CircleDot size={20} /> 低
         </TabsTrigger>
       </TabsList>
     </Tabs>
