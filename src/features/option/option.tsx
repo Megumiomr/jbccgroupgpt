@@ -1,6 +1,7 @@
 "use client";
 
 import { FC } from "react";
+import { useChatContext } from "@/features/chat/chat-ui/chat-context";
 import { ChatMessageEmptyState } from "@/features/chat/chat-ui/chat-empty-state/chat-message-empty-state";
 
 interface Prop {}
