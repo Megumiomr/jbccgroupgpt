@@ -52,34 +52,24 @@ export const MainMenu = () => {
             className="rounded-full w-[40px] h-[40px] p-2 text-primary"
             variant={"outline"}
           >
-            <Link href="/reporting" title="管理者向けレポート">
-              <LayoutDashboard />
+            <Link href="/option" title="設定">
+            <Sticker />
             </Link>
           </Button>
         ) : (
           <></>
         )}
-        <Button
-          asChild
-          className="rounded-full w-[40px] h-[40px] p-2 text-primary"
-          variant={"outline"}
-        >
-          <Link target="_blank" href='https://prompt.quel.jp/index.php?imode=1&theme=%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9' title="便利な使い方" className="relative">
-            <Lightbulb />
-            <UpdateIndicator />
-          </Link>
-        </Button>
-        {session?.user?.isAdmin ? (
 
-        <Button
-           asChild
-           className="rounded-full w-[40px] h-[40px] p-2 text-primary"
-           variant={"outline"}
-         >
-           <Link href="/chat" title="社内問い合わせ">
-             <Sticker />
-           </Link>       
-        </Button>
+        {session?.user?.isAdmin ? (
+          <Button
+            asChild
+            className="rounded-full w-[40px] h-[40px] p-2 text-primary"
+            variant={"outline"}
+          >
+            <Link href="/reporting" title="レポート">
+              <LayoutDashboard />
+            </Link>
+          </Button>
         ) : (
           <></>
         )}
