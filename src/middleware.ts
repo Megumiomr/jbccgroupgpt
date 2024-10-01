@@ -1,8 +1,8 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
-const requireAuth: string[] = ["/chat", "/api","/reporting", "/unauthorized"];
-const requireAdmin: string[] = ["/reporting"];
+const requireAuth: string[] = ["/chat", "/api","/reporting", "/option","/unauthorized"];
+const requireAdmin: string[] = ["/reporting", "/option"];
 
 
 export async function middleware(request: NextRequest) {
@@ -35,4 +35,4 @@ export async function middleware(request: NextRequest) {
 }
 
 // note that middleware is not applied to api/auth as this is required to logon (i.e. requires anon access)
-export const config = { matcher: ["/chat/:path*", "/reporting/:path*", "/api/chat:path*"] };
+export const config = { matcher: ["/chat/:path*", "/reporting/:path*", "/api/chat:path*","/option/:path*"] };
