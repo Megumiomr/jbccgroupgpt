@@ -4,7 +4,7 @@ import { useChatContext } from "@/features/chat/chat-ui/chat-context";
 import { useGlobalConfigContext } from "@/features/global-config/global-client-config-context";
 import { Loader, Send } from "lucide-react";
 import { FC, FormEvent, useRef } from "react";
-import { ChatFileSlider } from "../chat-file/chat-file-slider";
+//import { ChatFileSlider } from "../chat-file/chat-file-slider";
 import { Microphone } from "../chat-speech/microphone";
 import { useChatInputDynamicHeight } from "./use-chat-input-dynamic-height";
 
@@ -21,8 +21,6 @@ const ChatInput: FC<Props> = (props) => {
     buttonRef,
   });
 
-  const fileCHatVisible =
-    chatBody.chatType === "data" && chatBody.chatOverFileName;
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,11 +39,10 @@ const ChatInput: FC<Props> = (props) => {
       className="absolute bottom-0 w-full flex items-center"
     >
       <div className="container mx-auto max-w-4xl relative py-4 flex gap-2 items-center">
-        {fileCHatVisible && <ChatFileSlider />}
         <Textarea
           rows={rows}
           value={input}
-          placeholder="ChatGPTにメッセージを送る"
+          placeholder="メッセージを送る"
           className="min-h-fit bg-background shadow-sm resize-y py-4 pr-[80px]"
           onKeyUp={onKeyUp}
           onKeyDown={onKeyDown}
