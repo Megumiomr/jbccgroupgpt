@@ -16,6 +16,8 @@ export const ChatMessageEmptyState: FC<Prop> = (props) => {
 
   const { showFileUpload } = fileState;
 
+  //<ChatFileUI />
+
   return (
     <div className="grid grid-cols-1 w-full items-center container mx-auto max-w-3xl justify-center h-full gap-9">
       <Card className="col-span-3 flex flex-col gap-5 p-5 ">
@@ -30,7 +32,6 @@ export const ChatMessageEmptyState: FC<Prop> = (props) => {
           <ChatStyleSelector disable={false} />
         </div>
 
-        <ChatFileUI />
 
       </Card>
     </div>
