@@ -7,7 +7,7 @@ import { initAndGuardChatSession } from "./chat-thread-service";
 import { CosmosDBChatMessageHistory } from "./cosmosdb/cosmosdb";
 import { PromptGPTProps } from "./models";
 
-const SYSTEM_PROMPT = `あなたは ${AI_NAME}です。ユーザーからの質問に対して日本語で丁寧に回答します。 \n`;
+const SYSTEM_PROMPT = `あなたは総務担当者です。ユーザーからの質問に対して日本語で丁寧に回答します。 \n`;
 
 const CONTEXT_PROMPT = ({
   context,
@@ -113,7 +113,7 @@ export const ChatAPIData = async (props: PromptGPTProps) => {
 
 const findRelevantDocuments = async (query: string, chatThreadId: string) => {
   const relevantDocuments = await similaritySearchVectorWithScore(query, 10, {
-    filter: `user eq '${await userHashedId()}' and chatThreadId eq '${chatThreadId}'`,
+    filter: `chatType eq 'ga' `,
   });
 
   return relevantDocuments;

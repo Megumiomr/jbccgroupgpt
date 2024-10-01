@@ -5,7 +5,7 @@ import { ChatAPIWeb } from "./chat-api-web";
 import { PromptGPTProps } from "./models";
 
 export const chatAPIEntry = async (props: PromptGPTProps) => {
-  if (props.chatType === "simple") {
+  /*if (props.chatType === "simple") {
     return await ChatAPISimple(props);
   } else if (props.chatType === "web") {
     return await ChatAPIWeb(props);
@@ -17,5 +17,8 @@ export const chatAPIEntry = async (props: PromptGPTProps) => {
     return await ChatAPIData(props);
   } else {
     return await ChatAPISimple(props);
-  }
+  }*/
+
+  return await ChatAPIData(props);
+  
 };

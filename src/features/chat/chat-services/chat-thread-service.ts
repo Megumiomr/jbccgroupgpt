@@ -95,7 +95,7 @@ export const SoftDeleteChatThreadByID = async (chatThreadID: string) => {
       await container.items.upsert(itemToUpdate);
     });
 
-    const chatDocuments = await FindAllChatDocuments(chatThreadID);
+    /*const chatDocuments = await FindAllChatDocuments(chatThreadID);
 
     if (chatDocuments.length !== 0) {
       await deleteDocuments(chatThreadID);
@@ -108,6 +108,8 @@ export const SoftDeleteChatThreadByID = async (chatThreadID: string) => {
       itemToUpdate.isDeleted = true;
       await container.items.upsert(itemToUpdate);
     });
+
+   */
 
     threads.forEach(async (thread) => {
       const itemToUpdate = {
