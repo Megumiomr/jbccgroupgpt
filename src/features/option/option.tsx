@@ -5,12 +5,14 @@ import { ChatMessageEmptyState } from "@/features/chat/chat-ui/chat-empty-state/
 
 interface Prop {}
 
+//<ChatMessageEmptyState />
+
 export const Option = () => {
 
   return (
     <div className="h-full relative overflow-hidden flex-1 bg-card rounded-md shadow-md">
    
-     <ChatMessageEmptyState />
+       <p>テストです</p>
 
     </div>
   );
