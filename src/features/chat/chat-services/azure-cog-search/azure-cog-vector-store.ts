@@ -6,6 +6,7 @@ export interface AzureCogDocumentIndex {
   embedding?: number[];
   user: string;
   chatThreadId: string;
+  chatType: string;
   metadata: string;
 }
 
@@ -260,6 +261,12 @@ const AZURE_SEARCH_INDEX = {
     {
       name: "metadata",
       type: "Edm.String",
+    },
+    {
+      name : "chatType",
+      type: "Edm.String",
+      searchable: true,
+      filterable: true,
     },
     {
       name: "embedding",
