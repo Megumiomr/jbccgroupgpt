@@ -6,7 +6,6 @@ export interface AzureCogDocumentIndex {
   embedding?: number[];
   user: string;
   chatThreadId: string;
-  chatType: string;
   metadata: string;
 }
 
