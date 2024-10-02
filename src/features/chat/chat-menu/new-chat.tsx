@@ -20,13 +20,8 @@ export const NewChat = () => {
     }
   };
 
-  const EmptyState = async () => {
-    
-    <ChatMessageEmptyState />
-  };
-
   return (
-    <div>
+
     <Button
       className="gap-2 rounded-full w-[40px] h-[40px] p-1 text-primary"
       variant={"outline"}
@@ -34,19 +29,6 @@ export const NewChat = () => {
     >
       <PlusCircle size={40} strokeWidth={1.2} />
     </Button>
-    <Button
-      className="gap-2 rounded-full w-[40px] h-[40px] p-1 text-primary"
-      variant={"outline"}
-      onClick={() => EmptyState()}
-    >
-      <PlusCircle size={40} strokeWidth={1.2} />
-    </Button>
-    </div>
-
-
-
-
-
     
   );
 };
