@@ -104,6 +104,7 @@ export const IndexDocuments = async (
         user: await userHashedId(),
         pageContent: doc,
         metadata: fileName,
+        chatType: "data",
         embedding: [],
       };
 
