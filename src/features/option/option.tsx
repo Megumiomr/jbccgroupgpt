@@ -1,8 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { useChatContext } from "@/features/chat/chat-ui/chat-context";
-import { ChatMessageEmptyState } from "@/features/chat/chat-ui/chat-empty-state/chat-message-empty-state";
+import { OptionFileUI } from "./option-file-ui";
 
 interface Prop {}
 
@@ -11,7 +10,7 @@ export const Option = () => {
   return (
     <div className="h-full relative overflow-hidden flex-1 bg-card rounded-md shadow-md">
    
-       <ChatMessageEmptyState />
+    <OptionFileUI />
 
     </div>
   );
