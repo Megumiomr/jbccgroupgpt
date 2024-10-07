@@ -2,6 +2,8 @@
 
 import { FC } from "react";
 import { OptionFileUI } from "./option-file-ui";
+import Typography from "@/components/typography";
+import { Card } from "@/components/ui/card";
 
 interface Prop {}
 
