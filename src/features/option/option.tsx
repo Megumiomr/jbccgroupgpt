@@ -4,6 +4,7 @@ import { FC } from "react";
 import { OptionFileUI } from "./option-file-ui";
 import Typography from "@/components/typography";
 import { Card } from "@/components/ui/card";
+import { OptionProvider } from "./option-context"
 
 interface Prop {}
 
@@ -17,7 +18,9 @@ export const Option = () => {
         </Typography>
 
         <div className="flex flex-col gap-2">
-          <OptionFileUI />
+          <OptionProvider>
+             <OptionFileUI />
+          </OptionProvider>
         </div>
 
       </Card>
