@@ -7,14 +7,15 @@ interface OptionContextProps {
 
 export const OptionContext = createContext<OptionContextProps | null>(null);
 
-const useOptionContext = () => {
-    const content = useContext(OptionContext);
+export const useOptionContext = () => {
+    const context = useContext(OptionContext);
 
-    if(!content){
-      throw new Error("useOptionContext has to be used within <CurrentUserContext.Provider>")
+    if(!context){
+      throw new Error("OptionContext is null");
     }
 
-    return content;
+    return context;
+
 }
 
 export const OptionProvider = ({ children }) => {
