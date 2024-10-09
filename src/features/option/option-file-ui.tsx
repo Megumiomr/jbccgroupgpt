@@ -2,44 +2,34 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowUpCircle, Loader2 } from "lucide-react";
 import { FC } from "react";
-import { FileUpdateProcess } from "./file-update-process";
-import { useOptionContext } from "./option-context";
-
-const { fileState } = useOptionContext();
-
-const { isFileNull, setIsFileNull, uploadButtonLabel, isUploadingFile } =
-  fileState;
 
 export const OptionFileUI: FC = () => {
 
-  const id = "test";
-
-  const { onSubmit } = FileUpdateProcess({ id });
-
   return (
     <div className="flex flex-col gap-2">
-      <form onSubmit={onSubmit} className="flex gap-2">
+      <form onSubmit={/*onSubmit*/} className="flex gap-2">
         <Input
           name="file"
           type="file"
           required
-          disabled={isUploadingFile}
+          //disabled={isUploadingFile}
           placeholder="Describe the purpose of the document"
-          onChange={(e) => {
+          /*onChange={(e) => {
             setIsFileNull(e.currentTarget.value === null);
-          }}
+          }}*/
         />
 
         <Button
           type="submit"
           value="Upload"
-          disabled={!(!isFileNull && !isUploadingFile)}
+          //disabled={!(!isFileNull && !isUploadingFile)}
           className="flex items-center gap-1"
         >
           Upload
         </Button>
         
       </form>
+      <p className="text-xs text-primary">{uploadButtonLabel}</p>
     </div>
   );
 };
