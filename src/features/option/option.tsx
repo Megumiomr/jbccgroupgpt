@@ -20,7 +20,6 @@ export const Option = () => {
           <OptionFileUI />
         </div>
 
-        
       </Card>
     </div>
   );
