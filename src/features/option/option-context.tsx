@@ -5,7 +5,7 @@ interface OptionContextProps {
     fileState: FileState;
 }
 
-export const OptionContext = createContext<OptionContextProps | undefined>(undefined);
+export const OptionContext = createContext<OptionContextProps | null>(null);
 
 export const useOptionContext = () => useContext(OptionContext);
 
