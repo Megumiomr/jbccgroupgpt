@@ -5,13 +5,12 @@ import { FC } from "react";
 import { FileUpdateProcess } from "./file-update-process";
 import { useOptionContext } from "./option-context";
 
+const { fileState } = useOptionContext();
+
+const { isFileNull, setIsFileNull, uploadButtonLabel, isUploadingFile } =
+  fileState;
 
 export const OptionFileUI: FC = () => {
-
-  const { fileState } = useOptionContext();
-
-  const { isFileNull, setIsFileNull, uploadButtonLabel, isUploadingFile } =
-    fileState;
 
   const id = "test";
 
@@ -41,7 +40,6 @@ export const OptionFileUI: FC = () => {
         </Button>
         
       </form>
-      <p className="text-xs text-primary">{uploadButtonLabel}</p>
     </div>
   );
 };
