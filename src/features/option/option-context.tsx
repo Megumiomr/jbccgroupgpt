@@ -18,7 +18,11 @@ export const useOptionContext = () => {
 
 }
 
-export const OptionProvider = ({ children }) => {
+export const OptionProvider = ({ 
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
     const fileState = OptionFileState();
   
     return (
