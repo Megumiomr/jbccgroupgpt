@@ -1,20 +1,26 @@
 "use client";
 
 import { FC } from "react";
-import { useChatContext } from "@/features/chat/chat-ui/chat-context";
-import { ChatMessageEmptyState } from "@/features/chat/chat-ui/chat-empty-state/chat-message-empty-state";
+import { OptionFileUI } from "./option-file-ui";
+import Typography from "@/components/typography";
+import { Card } from "@/components/ui/card";
 
 interface Prop {}
-
-//<ChatMessageEmptyState />
 
 export const Option = () => {
 
   return (
-    <div className="h-full relative overflow-hidden flex-1 bg-card rounded-md shadow-md">
-   
-      
+    <div className="grid grid-cols-1 w-full items-center container mx-auto max-w-3xl justify-center h-full gap-9">
+      <Card className="col-span-3 flex flex-col gap-5 p-5 ">
+        <Typography variant="h4" className="text-primary">
+          ファイル読込
+        </Typography>
 
+        <div className="flex flex-col gap-2">
+          <OptionFileUI />
+        </div>
+
+      </Card>
     </div>
   );
 };
