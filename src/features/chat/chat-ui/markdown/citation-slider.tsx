@@ -16,6 +16,8 @@ interface SliderProps {
   id: string;
 }
 
+//<div className="text-sm text-muted-foreground">{node}</div>
+
 export const CitationSlider: FC<SliderProps> = (props) => {
   //const [node, formAction] = useFormState(CitationAction, null);
   return (
@@ -37,7 +39,6 @@ export const CitationSlider: FC<SliderProps> = (props) => {
           <SheetHeader>
             <SheetTitle>Citation</SheetTitle>
           </SheetHeader>
-          <div className="text-sm text-muted-foreground">{node}</div>
         </SheetContent>
       </Sheet>
     </form>
