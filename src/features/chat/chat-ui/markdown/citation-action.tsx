@@ -2,12 +2,6 @@
 
 import { simpleSearch } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
 
-//<div className="border rounded-sm p-2">
-//<div className="font-bold">File name</div>
-//<div>{firstResult.metadata} </div>
-//</div>
-//<p>{firstResult.pageContent}</p>
-
 //filter: `id eq '${formData.get("id")}' and chatType eq 'data'`,
 
 export const CitationAction = async (
@@ -15,7 +9,7 @@ export const CitationAction = async (
   formData: FormData
 ) => {
   const result = await simpleSearch({
-    filter: `id eq '${formData.get("id")}' and chatType eq 'data'`,
+    filter: `chatType eq 'data'`,
   });
 
   if (result.length === 0) return <div>Not found</div>;
@@ -26,7 +20,9 @@ export const CitationAction = async (
     <div className="flex flex-col gap-4">
       <div className="border rounded-sm p-2">
         <div className="font-bold">File name</div>
+          <div>{firstResult.metadata} </div>
       </div>
+    <p>{firstResult.pageContent}</p>
     </div>
   );
 };
