@@ -19,7 +19,7 @@ interface SliderProps {
 //<div className="text-sm text-muted-foreground">{node}</div>
 
 export const CitationSlider: FC<SliderProps> = (props) => {
-  //const [node, formAction] = useFormState(CitationAction, null);
+  const [node, formAction] = useFormState(CitationAction, null);
   return (
     <form>
       <input type="hidden" name="id" value={props.id} />
@@ -28,7 +28,7 @@ export const CitationSlider: FC<SliderProps> = (props) => {
           <Button
             variant="outline"
             size="sm"
-            //formAction={formAction}
+            formAction={formAction}
             type="submit"
             value={22}
           >
