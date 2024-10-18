@@ -8,7 +8,11 @@ interface ActionProps {
   name: string;
 }
 
-export const CitationAction: FC<ActionProps> = async (props) => {
+export const CitationAction :FC<ActionProps> = async (
+  previousState: any,
+  formData: FormData,
+  props
+) => {
   const result = await simpleSearch({
     filter: `id eq '${props.name}' and chatType eq 'data'`,
   });
