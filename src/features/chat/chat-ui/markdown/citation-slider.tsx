@@ -17,7 +17,7 @@ interface SliderProps {
 }
 
 export const CitationSlider: FC<SliderProps> = (props) => {
-  const [node, formAction] = useFormState(CitationAction, null, props.name);
+  const [node, formAction] = useFormState(CitationAction, null);
   return (
     <form>
       <input type="hidden" name="id" value={props.id} />

@@ -1,16 +1,15 @@
 "use server";
 
 import { simpleSearch } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
-import { FC } from "react";
+
 //filter: `id eq '${formData.get("id")}' and chatType eq 'data'`,
 
 export const CitationAction = async (
   previousState: any,
-  formData: FormData,
-  name:string
+  formData: FormData
 ) => {
   const result = await simpleSearch({
-    filter: `id eq '${name}' and chatType eq 'data'`,
+    filter: `chatType eq 'data'`,
   });
 
   if (result.length === 0) return <div>Not found</div>;
