@@ -4,17 +4,13 @@ import { simpleSearch } from "@/features/chat/chat-services/azure-cog-search/azu
 import { FC } from "react";
 //filter: `id eq '${formData.get("id")}' and chatType eq 'data'`,
 
-interface ActionProps {
-  name: string;
-}
-
-export const CitationAction :FC<ActionProps> = async (
+export const CitationAction = async (
   previousState: any,
   formData: FormData,
-  props
+  name:string
 ) => {
   const result = await simpleSearch({
-    filter: `id eq '${props.name}' and chatType eq 'data'`,
+    filter: `id eq '${name}' and chatType eq 'data'`,
   });
 
   if (result.length === 0) return <div>Not found</div>;
