@@ -4,12 +4,13 @@ import { simpleSearch } from "@/features/chat/chat-services/azure-cog-search/azu
 
 //filter: `id eq '${formData.get("id")}' and chatType eq 'data'`,
 
+
 export const CitationAction = async (
   previousState: any,
-  formData: FormData
+  formData: FormData,
 ) => {
   const result = await simpleSearch({
-    filter: `chatType eq 'data'`,
+    filter: `metadata eq '${formData.get("id")}' and chatType eq 'data'`,
   });
 
   if (result.length === 0) return <div>Not found</div>;

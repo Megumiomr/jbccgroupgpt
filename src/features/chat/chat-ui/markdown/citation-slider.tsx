@@ -20,7 +20,7 @@ export const CitationSlider: FC<SliderProps> = (props) => {
   const [node, formAction] = useFormState(CitationAction, null);
   return (
     <form>
-      <input type="hidden" name="id" value={props.id} />
+      <input type="hidden" name="id" value={props.name} />
       <Sheet>
         <SheetTrigger asChild>
           <Button
