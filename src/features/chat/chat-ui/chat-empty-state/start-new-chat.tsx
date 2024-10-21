@@ -15,7 +15,7 @@ export const StartNewChat: FC<Prop> = (props) => {
       </div>
       <Card className="col-span-4 flex flex-col gap-5 p-5 ">
         <Typography variant="h4" className="text-primary">
-        {AI_NAME}です
+        {AI_NAME}
         </Typography>
         <div className="flex flex-col gap-2">
           <p className="">このチャットボットは、機能検証用に限定公開されています。</p>

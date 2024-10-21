@@ -11,12 +11,6 @@ import { useSession } from "next-auth/react";
 interface Prop {}
 
 export const ChatMessageEmptyState: FC<Prop> = (props) => {
-  const { fileState } = useChatContext();
-  const { data: session } = useSession();
-
-  const { showFileUpload } = fileState;
-
-  //<ChatFileUI />
 
   return (
     <div className="grid grid-cols-1 w-full items-center container mx-auto max-w-3xl justify-center h-full gap-9">
@@ -32,8 +26,6 @@ export const ChatMessageEmptyState: FC<Prop> = (props) => {
           <ChatStyleSelector disable={false} />
         </div>
 
-        {(session?.user?.isAdmin) && <ChatFileUI />} 
-        
       </Card>
     </div>
   );
