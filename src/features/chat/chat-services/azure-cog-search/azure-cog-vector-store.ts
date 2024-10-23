@@ -155,11 +155,11 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
   );
 };
 
-export const deleteAllDocuments = async(): Promise<void> => {
+export const deleteAllDocuments = async() => {
 
-  //const documentsInChat = await simpleSearch({
-  //  filter: `chatType eq 'data'`,
-  //});
+  const result = await simpleSearch({
+    filter: `chatType eq 'data'`,
+  });
 
   const documentsToDelete: DocumentDeleteModel[] = [];
 
