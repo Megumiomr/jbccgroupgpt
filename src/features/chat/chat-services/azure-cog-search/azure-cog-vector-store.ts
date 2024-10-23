@@ -163,13 +163,14 @@ export const deleteAllDocuments = async(): Promise<void> => {
 
   const documentsToDelete: DocumentDeleteModel[] = [];
 
-  documentsInChat.forEach(async (document: { id: string }) => {
-    const doc: DocumentDeleteModel = {
-      "@search.action": "delete",
-      id: document.id,
-    };
-    documentsToDelete.push(doc);
-  });
+  //documentsInChat.forEach(async (document: { id: string }) => {
+    //const doc: DocumentDeleteModel = {
+      //"@search.action": "delete",
+      //id: document.id,
+    //};
+    //documentsToDelete.push(doc);
+  //});
+  
 
   // delete the documents
   /*await fetcher(
