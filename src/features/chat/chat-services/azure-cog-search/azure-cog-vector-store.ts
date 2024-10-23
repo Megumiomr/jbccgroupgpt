@@ -158,7 +158,7 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
 export const deleteAllDocuments = async(): Promise<void> => {
 
   const documentsInChat = await simpleSearch({
-    filter: `metadata eq 'FAQs_Volume_License_Key_JP.pdf'`,
+    filter: `chatType eq 'data'`,
   });
 
   const documentsToDelete: DocumentDeleteModel[] = [];
@@ -172,7 +172,7 @@ export const deleteAllDocuments = async(): Promise<void> => {
   });
 
   // delete the documents
-  await fetcher(
+  /*await fetcher(
     `${baseIndexUrl()}/docs/index?api-version=${
       process.env.AZURE_SEARCH_API_VERSION
     }`,
@@ -180,7 +180,7 @@ export const deleteAllDocuments = async(): Promise<void> => {
       method: "POST",
       body: JSON.stringify({ value: documentsToDelete }),
     }
-  );
+  );*/
 };
 
 
