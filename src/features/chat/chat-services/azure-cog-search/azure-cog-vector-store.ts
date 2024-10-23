@@ -23,6 +23,11 @@ type DocumentDeleteModel = {
   "@search.action": "delete";
 };
 
+type AllDeleteModel = {
+  "@search.action": "delete";
+  "chatType": "data";
+};
+
 export interface AzureCogDocument {}
 
 type AzureCogVectorField = {
@@ -155,13 +160,13 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
   );
 };
 
-export const deleteAllDocuments = async() => {
+export const deleteAllDocuments = async(): Promise<void> => {
 
-  const result = await simpleSearch({
-    filter: `chatType eq 'data'`,
-  });
+  //const result = await simpleSearch({
+  //  filter: ``,
+  //});
 
-  const documentsToDelete: DocumentDeleteModel[] = [];
+  //const documentsToDelete: DocumentDeleteModel[] = [];
 
   //documentsInChat.forEach(async (document: { id: string }) => {
     //const doc: DocumentDeleteModel = {
@@ -171,9 +176,16 @@ export const deleteAllDocuments = async() => {
     //documentsToDelete.push(doc);
   //});
   
+  //const documentsToDelete: AllDeleteModel;
+
+  const documentsToDelete: AllDeleteModel = {
+      "@search.action": "delete",
+      "chatType": "data",
+  };
+ 
 
   // delete the documents
-  /*await fetcher(
+  await fetcher(
     `${baseIndexUrl()}/docs/index?api-version=${
       process.env.AZURE_SEARCH_API_VERSION
     }`,
@@ -181,7 +193,7 @@ export const deleteAllDocuments = async() => {
       method: "POST",
       body: JSON.stringify({ value: documentsToDelete }),
     }
-  );*/
+  );
 };
 
 
