@@ -3,6 +3,9 @@ import { Input } from "@/components/ui/input";
 import { ArrowUpCircle, Loader2 } from "lucide-react";
 import { FC } from "react";
 import { FileUpdateProcess } from "./file-update-process";
+import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
+import { deleteAllDocuments } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
+
 //import { useOptionContext } from "./option-context";
 
 
@@ -13,9 +16,20 @@ export const OptionFileUI: FC = () => {
   //const { isFileNull, setIsFileNull, uploadButtonLabel, isUploadingFile } =
   //  fileState;
 
-  const id = "test";
+  const id = "soumu";
+  const { showError } = useGlobalMessageContext();
 
   const { onSubmit } = FileUpdateProcess({ id });
+
+  const sendData = async () => {
+    try {
+      await deleteAllDocuments();
+    } catch (e) {
+      console.log(e);
+      showError("" + e);
+    }
+  };    
+
 
   return (
     <div className="flex flex-col gap-2">
@@ -39,8 +53,23 @@ export const OptionFileUI: FC = () => {
         >
           Upload
         </Button>
-        
+
       </form>
+
+      <Button
+          className="flex items-center gap-1"
+          onClick={async (e) => {
+            e.preventDefault();
+            const yesDelete = confirm(
+              "アップロードしているファイルを削除しますか？"
+            );
+            if (yesDelete) {
+              await sendData();
+            }
+          }}
+      >
+        ファイル削除
+      </Button>
       
     </div>
   );
