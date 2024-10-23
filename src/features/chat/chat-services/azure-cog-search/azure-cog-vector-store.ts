@@ -58,7 +58,7 @@ export const simpleSearch = async (
     facets: filter?.facets || [],
     filter: filter?.filter || "",
     vectors: [],
-    top: filter?.top || 1000,
+    top: filter?.top || 100,
   };
 
   const resultDocuments = (await fetcher(url, {
@@ -158,7 +158,7 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
 export const deleteAllDocuments = async(): Promise<void> => {
 
   const documentsInChat = await simpleSearch({
-    filter: `chatType eq 'data'`,
+    filter: `metadata eq 'FAQs_Volume_License_Key_JP.pdf'`,
   });
 
   const documentsToDelete: DocumentDeleteModel[] = [];
