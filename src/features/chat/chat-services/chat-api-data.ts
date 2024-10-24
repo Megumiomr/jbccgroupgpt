@@ -112,7 +112,7 @@ export const ChatAPIData = async (props: PromptGPTProps) => {
 };
 
 const findRelevantDocuments = async (query: string, chatThreadId: string) => {
-  const relevantDocuments = await similaritySearchVectorWithScore(query, 100, {
+  const relevantDocuments = await similaritySearchVectorWithScore(query, 10, {
     filter: `chatType eq 'data' `,
   });
 
