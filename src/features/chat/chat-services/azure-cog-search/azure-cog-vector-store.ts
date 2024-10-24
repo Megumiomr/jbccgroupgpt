@@ -23,11 +23,6 @@ type DocumentDeleteModel = {
   "@search.action": "delete";
 };
 
-type AllDeleteModel = {
-  "@search.action": "delete";
-  "chatType": "data";
-};
-
 export interface AzureCogDocument {}
 
 type AzureCogVectorField = {
@@ -63,7 +58,7 @@ export const simpleSearch = async (
     facets: filter?.facets || [],
     filter: filter?.filter || "",
     vectors: [],
-    top: filter?.top || 100,
+    top: filter?.top || 1000,
   };
 
   const resultDocuments = (await fetcher(url, {
@@ -159,44 +154,6 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
     }
   );
 };
-
-export const deleteAllDocuments = async(): Promise<void> => {
-
-  //const result = await simpleSearch({
-  //  filter: ``,
-  //});
-
-  //const documentsToDelete: DocumentDeleteModel[] = [];
-
-  //documentsInChat.forEach(async (document: { id: string }) => {
-    //const doc: DocumentDeleteModel = {
-      //"@search.action": "delete",
-      //id: document.id,
-    //};
-    //documentsToDelete.push(doc);
-  //});
-  
-  //const documentsToDelete: AllDeleteModel;
-
-  const documentsToDelete: AllDeleteModel = {
-      "@search.action": "delete",
-      "chatType": "data",
-  };
- 
-
-  // delete the documents
-  await fetcher(
-    `${baseIndexUrl()}/docs/index?api-version=${
-      process.env.AZURE_SEARCH_API_VERSION
-    }`,
-    {
-      method: "POST",
-      body: JSON.stringify({ value: documentsToDelete }),
-    }
-  );
-};
-
-
 
 export const embedDocuments = async (
   documents: Array<AzureCogDocumentIndex>
