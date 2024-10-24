@@ -1,5 +1,3 @@
-"use server";
-
 import { OpenAIEmbeddingInstance } from "@/features/common/openai";
 
 export interface AzureCogDocumentIndex {
