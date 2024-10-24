@@ -50,7 +50,7 @@ export const OptionFileUI: FC = () => {
       </form>
 
       <Button
-          className="flex w-[40px] items-right gap-2"
+          className="flex w-[80px] gap-2"
 
           onClick={async (e) => {
             e.preventDefault();
