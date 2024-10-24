@@ -50,18 +50,18 @@ export const OptionFileUI: FC = () => {
       </form>
 
       <Button
-          className="flex items-center gap-1"
+          //className="flex items-center gap-1"
           onClick={async (e) => {
             e.preventDefault();
             const yesDelete = confirm(
-              "アップロードしているファイルを削除しますか？"
+              "アップロードファイルを削除しますか？"
             );
             if (yesDelete) {
               await sendData();
             }
           }}
       >
-        ファイル削除
+        Delete
       </Button>
 
     
