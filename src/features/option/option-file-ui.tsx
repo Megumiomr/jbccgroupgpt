@@ -15,12 +15,7 @@ export const OptionFileUI: FC = () => {
   const { onSubmit } = FileUploadProcess({ id });
 
   const sendData = async () => {
-    try {
       await FileDeleteProcess();
-    } catch (e) {
-      console.log(e);
-      showError("" + e);
-    }
   };    
 
 
