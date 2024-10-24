@@ -7,7 +7,10 @@ import { initAndGuardChatSession } from "./chat-thread-service";
 import { CosmosDBChatMessageHistory } from "./cosmosdb/cosmosdb";
 import { PromptGPTProps } from "./models";
 
-const SYSTEM_PROMPT = `あなたは総務担当者です。ユーザーからの質問に対して日本語で丁寧に回答します。 \n`;
+const SYSTEM_PROMPT = `
+- あなたは総務担当者です。ユーザーからの質問に対して日本語で丁寧に回答します。 \n
+- 情報が不足している場合は、曖昧な回答を行わず、総務窓口に問い合わせ頂くよう回答します。\n 
+`;
 
 const CONTEXT_PROMPT = ({
   context,
@@ -19,7 +22,7 @@ const CONTEXT_PROMPT = ({
   return `
 - Given the following extracted parts of a long document, create a final answer. \n
 - If you don't know the answer, just say that you don't know. Don't try to make up an answer.\n
-- You must always include a citation at the end of your answer and don't include full stop.\n
+- You must always include a citation at the end of a correct response. do not include a period.\n
 - Use the format for your citation {% citation items=[{name:"filename 1",id:"file id"}, {name:"filename 2",id:"file id"}] /%}\n 
 ----------------\n 
 context:\n 
