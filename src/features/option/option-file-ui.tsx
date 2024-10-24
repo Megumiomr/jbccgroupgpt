@@ -50,8 +50,8 @@ export const OptionFileUI: FC = () => {
       </form>
 
       <Button
-          className="flex gap-2"
-          size={20}
+          className="flex w-[40px] items-right gap-2"
+
           onClick={async (e) => {
             e.preventDefault();
             const yesDelete = confirm(
