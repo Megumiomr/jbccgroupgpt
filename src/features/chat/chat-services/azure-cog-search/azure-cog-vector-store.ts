@@ -185,7 +185,7 @@ export const deleteAllDocuments = async(): Promise<void> => {
  
 
   // delete the documents
-  /*await fetcher(
+  await fetcher(
     `${baseIndexUrl()}/docs/index?api-version=${
       process.env.AZURE_SEARCH_API_VERSION
     }`,
@@ -193,16 +193,7 @@ export const deleteAllDocuments = async(): Promise<void> => {
       method: "POST",
       body: JSON.stringify({ value: documentsToDelete }),
     }
-  );*/
-
-  await fetcher(
-    `https://toyaltutorial.search.windows.net/indexes/index1002/docs/index?api-version=2023-07-01-Preview`,
-    {
-      method: "POST",
-      body: JSON.stringify({ value: documentsToDelete }),
-    }
   );
-
 
 };
 
@@ -256,11 +247,6 @@ const fetcher = async (url: string, init?: RequestInit) => {
       throw new Error(`Azure Cog Search Error: ${response.statusText}`);
     }
   }
-
-//  console.log(`Azure Cog Search Response: ${response.json()}`);
-  return await response.json();
-};
-
 
 //  console.log(`Azure Cog Search Response: ${response.json()}`);
   return await response.json();
