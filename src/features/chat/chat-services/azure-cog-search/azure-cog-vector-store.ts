@@ -162,28 +162,20 @@ export const deleteDocuments = async (chatThreadId: string): Promise<void> => {
 
 export const deleteAllDocuments = async(): Promise<void> => {
 
-  //const result = await simpleSearch({
-  //  filter: ``,
-  //});
+  const result = await simpleSearch({
+    filter: `chatType eq 'data'`,
+  });
 
-  //const documentsToDelete: DocumentDeleteModel[] = [];
+  const documentsToDelete: DocumentDeleteModel[] = [];
 
-  //documentsInChat.forEach(async (document: { id: string }) => {
-    //const doc: DocumentDeleteModel = {
-      //"@search.action": "delete",
-      //id: document.id,
-    //};
-    //documentsToDelete.push(doc);
-  //});
-  
-  //const documentsToDelete: AllDeleteModel;
-
-  const documentsToDelete: AllDeleteModel = {
+  result.forEach(async (document: { id: string }) => {
+    const doc: DocumentDeleteModel = {
       "@search.action": "delete",
-      "chatType": "data",
-  };
- 
-
+      id: document.id,
+    };
+    documentsToDelete.push(doc);
+  });
+  
   // delete the documents
   await fetcher(
     `${baseIndexUrl()}/docs/index?api-version=${
