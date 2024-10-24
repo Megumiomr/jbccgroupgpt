@@ -1,5 +1,3 @@
-"use server";
-
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
 import {
   IndexDocuments,
