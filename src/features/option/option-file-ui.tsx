@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowUpCircle, Loader2 } from "lucide-react";
 import { FC } from "react";
-import { FileUpdateProcess } from "./file-update-process";
+import { FileUploadProcess } from "./file-upload-process";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
 import { deleteAllDocuments } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
 
@@ -19,11 +19,11 @@ export const OptionFileUI: FC = () => {
   const id = "soumu";
   const { showError } = useGlobalMessageContext();
 
-  const { onSubmit } = FileUpdateProcess({ id });
+  const { onSubmit } = FileUploadProcess({ id });
 
-  const sendData = async () => {
+  const sendData = () => {
     try {
-      await deleteAllDocuments();
+      deleteAllDocuments();
     } catch (e) {
       console.log(e);
       showError("" + e);
@@ -64,7 +64,7 @@ export const OptionFileUI: FC = () => {
               "アップロードしているファイルを削除しますか？"
             );
             if (yesDelete) {
-              await sendData();
+              sendData();
             }
           }}
       >
