@@ -6,24 +6,16 @@ import { FileUploadProcess } from "./file-upload-process";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
 import { deleteAllDocuments } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
 
-//import { useOptionContext } from "./option-context";
-
-
 export const OptionFileUI: FC = () => {
-
-//  const { fileState } = useOptionContext();
-
-  //const { isFileNull, setIsFileNull, uploadButtonLabel, isUploadingFile } =
-  //  fileState;
 
   const id = "soumu";
   const { showError } = useGlobalMessageContext();
 
   const { onSubmit } = FileUploadProcess({ id });
 
-  const sendData = () => {
+  const sendData = async () => {
     try {
-      deleteAllDocuments();
+      await deleteAllDocuments();
     } catch (e) {
       console.log(e);
       showError("" + e);
@@ -54,8 +46,6 @@ export const OptionFileUI: FC = () => {
           Upload
         </Button>
 
-      </form>
-
       <Button
           className="flex items-center gap-1"
           onClick={async (e) => {
@@ -64,12 +54,14 @@ export const OptionFileUI: FC = () => {
               "アップロードしているファイルを削除しますか？"
             );
             if (yesDelete) {
-              sendData();
+              await sendData();
             }
           }}
       >
         ファイル削除
       </Button>
+
+      </form>
       
     </div>
   );
