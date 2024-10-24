@@ -13,6 +13,7 @@ import {
   AzureCogDocumentIndex,
   ensureIndexIsCreated,
   indexDocuments,
+  deleteAllDocuments,
 } from "@/features/chat/chat-services/azure-cog-search/azure-cog-vector-store";
 import { chunkDocumentWithOverlap } from "@/features/chat/chat-services/text-chunk";
 
@@ -173,4 +174,11 @@ export const ensureSearchIsConfigured = async () => {
 
 export const isNotNullOrEmpty = (value?: string) => {
     return value !== null && value !== undefined && value !== "";
+};
+
+
+export const AllDelete = async () => {
+
+  await deleteAllDocuments();
+
 };
