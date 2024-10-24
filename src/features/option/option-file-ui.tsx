@@ -4,7 +4,7 @@ import { ArrowUpCircle, Loader2 } from "lucide-react";
 import { FC } from "react";
 import { FileUploadProcess } from "./file-upload-process";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
-//import { FileDeleteProcess } from "./file-delete-process";
+import { FileDeleteProcess } from "./file-delete-process";
 
 export const OptionFileUI: FC = () => {
 
@@ -13,9 +13,14 @@ export const OptionFileUI: FC = () => {
 
   const { onSubmit } = FileUploadProcess({ id });
 
-  /*const sendData = async () => {
-      //await FileDeleteProcess();
-  };*/    
+  const sendData = async () => {
+    try{
+      await FileDeleteProcess();
+    }catch(e){
+      console.log(e);
+      showError("" + e);
+    }
+  };  
 
 
   return (
@@ -51,7 +56,7 @@ export const OptionFileUI: FC = () => {
               "アップロードしているファイルを削除しますか？"
             );
             if (yesDelete) {
-              //await sendData();
+              await sendData();
             }
           }}
       >
