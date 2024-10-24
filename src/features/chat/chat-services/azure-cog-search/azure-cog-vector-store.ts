@@ -195,7 +195,7 @@ export const deleteAllDocuments = async(): Promise<void> => {
     }
   );*/
 
-  await test_fetcher(
+  await fetcher(
     `https://toyaltutorial.search.windows.net/indexes/index1002/docs/index?api-version=2023-07-01-Preview`,
     {
       method: "POST",
@@ -205,7 +205,6 @@ export const deleteAllDocuments = async(): Promise<void> => {
 
 
 };
-
 
 
 export const embedDocuments = async (
@@ -262,25 +261,6 @@ const fetcher = async (url: string, init?: RequestInit) => {
   return await response.json();
 };
 
-
-const test_fetcher = async (url: string, init?: RequestInit) => {
-  const response = await fetch(url, {
-    ...init,
-    cache: "no-store",
-    headers: {
-      "Content-Type": "application/json",
-      "api-key": "hJomwhydM5ewxcX0VydroqnmsYYwPHR9zu2p2FX4N9AzSeCl5Zo6",
-    },
-  });
-
-  if (!response.ok) {
-    if (response.status === 400) {
-      const err = await response.json();
-      throw new Error(err.error.message);
-    } else {
-      throw new Error(`Azure Cog Search Error: ${response.statusText}`);
-    }
-  }
 
 //  console.log(`Azure Cog Search Response: ${response.json()}`);
   return await response.json();
